@@ -1,0 +1,6 @@
+﻿services:
+  todid:
+    image: todid
+    build:
+      context: .
+      dockerfile: Dockerfile

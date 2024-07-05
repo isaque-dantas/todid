@@ -1,0 +1,6 @@
+@ToDid_HostAddress = http://localhost:5017
+
+GET {{ToDid_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
