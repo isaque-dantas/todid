@@ -1,0 +1,124 @@
+@TodoAPI_HostAddress = http://localhost:5241
+
+GET {{TodoAPI_HostAddress}}/items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE2NDYxLCJleHAiOjE3MTY5MjM2NjEsImlhdCI6MTcxNjkxNjQ2MX0.IbQeGsEWLm2h_edRU23KI8hx_oRRNYe6u_Sp_j3df8E
+
+###
+GET {{TodoAPI_HostAddress}}/items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE2MTQ0LCJleHAiOjE3MTY5MjMzNDQsImlhdCI6MTcxNjkxNjE0NH0.w1zjF0BvC2oTR-yVLe5JKBT-VZSxBAfkA2ebMPz33KY
+
+###
+GET {{TodoAPI_HostAddress}}/items/38
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE2OTYwLCJleHAiOjE3MTY5MjQxNjAsImlhdCI6MTcxNjkxNjk2MH0.ti2WHUeZ5PRHeLezhTLtYqSrnCbiWEaVv8Xhgpd6EcM
+
+###
+POST {{TodoAPI_HostAddress}}/items
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE2NDYxLCJleHAiOjE3MTY5MjM2NjEsImlhdCI6MTcxNjkxNjQ2MX0.IbQeGsEWLm2h_edRU23KI8hx_oRRNYe6u_Sp_j3df8E
+
+{
+  "Name": "dormir de tarde",
+  "IsComplete": false,
+  "TodoListId": 4
+}
+
+###
+PUT {{TodoAPI_HostAddress}}/items/36
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE2NDYxLCJleHAiOjE3MTY5MjM2NjEsImlhdCI6MTcxNjkxNjQ2MX0.IbQeGsEWLm2h_edRU23KI8hx_oRRNYe6u_Sp_j3df8E
+
+{
+  "Name": "batata",
+  "IsComplete": true,
+  "TodoListId": 3
+}
+
+###
+GET {{TodoAPI_HostAddress}}/lists
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE2NDYxLCJleHAiOjE3MTY5MjM2NjEsImlhdCI6MTcxNjkxNjQ2MX0.IbQeGsEWLm2h_edRU23KI8hx_oRRNYe6u_Sp_j3df8E
+
+###
+GET {{TodoAPI_HostAddress}}/lists/12
+
+###
+GET {{TodoAPI_HostAddress}}/lists/12/items
+
+###
+POST {{TodoAPI_HostAddress}}/lists
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTA1Mjk0LCJleHAiOjE3MTY5MTI0OTQsImlhdCI6MTcxNjkwNTI5NH0.-3mAqFc36rOcm7w86tCtrTH3TkOIn8W8E52WVEAwm18
+
+{
+  "Name": "list 2",
+  "Color": "000000",
+  "TodoItems": []
+}
+
+###
+DELETE {{TodoAPI_HostAddress}}/items
+
+###
+DELETE {{TodoAPI_HostAddress}}/items/1029
+
+###
+PUT {{TodoAPI_HostAddress}}/lists/12
+Content-Type: application/json
+
+{
+  "Name": "list 20h41",
+  "Color": "103421",
+  "TodoItems": []
+}
+
+###
+DELETE {{TodoAPI_HostAddress}}/lists
+
+###
+DELETE {{TodoAPI_HostAddress}}/lists/12/items
+
+###
+DELETE {{TodoAPI_HostAddress}}/lists/3
+
+
+
+###
+POST {{TodoAPI_HostAddress}}/users/login
+Content-Type: application/json
+
+{
+  "Email": "isaque.dantas@gmail.com",
+  "Password": "12345678"
+}
+
+###
+POST {{TodoAPI_HostAddress}}/users
+Content-Type: application/json
+
+{
+  "Name": "Isaque",
+  "Username": "isaque-d",
+  "Email": "id@gmail.com",
+  "Password": "12345678",
+  "Role": "admin"
+}
+
+###
+GET {{TodoAPI_HostAddress}}/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE4MjExLCJleHAiOjE3MTY5MjU0MTEsImlhdCI6MTcxNjkxODIxMX0.eVpu-JzmxQor-vf-4v55p2tdwyfPhcWj1UzczAIyt_w
+
+###
+GET {{TodoAPI_HostAddress}}/users/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTA1Mjk0LCJleHAiOjE3MTY5MTI0OTQsImlhdCI6MTcxNjkwNTI5NH0.-3mAqFc36rOcm7w86tCtrTH3TkOIn8W8E52WVEAwm18
+
+###
+PUT {{TodoAPI_HostAddress}}/users/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2Iiwicm9sZSI6ImFkbWluIiwibmJmIjoxNzE2OTE4MjExLCJleHAiOjE3MTY5MjU0MTEsImlhdCI6MTcxNjkxODIxMX0.eVpu-JzmxQor-vf-4v55p2tdwyfPhcWj1UzczAIyt_w
+
+{
+  "Name": "Isaque do Patrick Silva Santos de Victor",
+  "Username": "isaque-",
+  "Email": "itas.victor@gmail.com",
+  "Password": "12345678",
+  "Role": "admin"
+}
