@@ -1,0 +1,53 @@
+<div class="mb-10 py-4 ps-8 pe-6">
+  <form [formGroup]="form">
+    <div class="flex gap-4 items-baseline w-full mb-10 pe-10"
+         (mouseenter)="isHovering=true" (mouseleave)="isHovering=false">
+
+      <ng-container *ngIf="formActivated">
+        <input type="text"
+               formControlName="name"
+               name="{{idPrefix}}-{{data.id}}"
+               id="{{idPrefix}}-{{data.id}}"
+               value="{{data.name}}"
+               class="font-medium text-3xl md:text-4xl leading-none bg-transparent border-primary outline-0 w-full"
+               (keydown.enter)="finishEditing()"
+        />
+      </ng-container>
+
+      <h1 *ngIf="!formActivated" class="font-medium text-4xl leading-none">
+        {{ data.name }}
+      </h1>
+
+      <input type="color"
+             id="todoListColor-{{data.id}}"
+             formControlName="color"
+             class="rounded-full border-2 border-white h-6 w-6 shrink-0"
+             [style.background-color]="'#' + data.color"
+             [value]="'#' + data.color"
+      />
+
+      <div *ngIf="isHovering" class="flex ms-4 gap-2">
+        <button *ngIf="formActivated" class="bg-bright-gradient p-1 flex justify-center items-center" (click)="finishEditing()"
+                type="button"><span class="icon text-xl">check</span></button>
+        <button (click)="switchFormState()"
+                class="bg-bright-gradient p-1 flex justify-center items-center" type="button">
+          <span *ngIf="!formActivated" class="icon text-xl">edit</span>
+          <span *ngIf="formActivated" class="icon text-xl">close</span>
+        </button>
+        <button class="bg-bright-gradient p-1 flex justify-center items-center" (click)="delete()"
+                type="button"><span class="icon text-xl">delete</span></button>
+      </div>
+    </div>
+  </form>
+
+  <ul class="flex flex-col gap-5">
+    <li *ngFor="let todoItemData of data.todoItems">
+      <app-todo-item [data]="todoItemData" (todoItemDeletionRequested)="deleteTodoItem($event)"></app-todo-item>
+    </li>
+  </ul>
+
+  <button type="button" class=" mt-12 btn-sm btn-filled" (click)="emitNewTodoItemCreation()">
+    <span class="icon text-2xl">add</span>
+    <span class="font-medium text-xl">New item</span>
+  </button>
+</div>

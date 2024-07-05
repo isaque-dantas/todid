@@ -1,0 +1,6 @@
+<ng-container *ngIf="alertDataList !== undefined && alertDataList.length > 0">
+<!--  <h3>{{this.data.}}</h3>-->
+  <ul class="fixed bottom-[15%] right-4 max-h-dvh overflow-y-scroll w-80 flex flex-col gap-3">
+    <app-alert *ngFor="let alertData of alertDataList" [data]="alertData.data" (dismissedAlert)="dismissAlert(alertData.index)" />
+  </ul>
+</ng-container>

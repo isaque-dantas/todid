@@ -1,0 +1,7 @@
+<div class="fixed top-1/2 -translate-y-1/2">
+  <button
+    (click)="handleClick()"
+    class="icon text-2xl bg-primary text-black rounded-e-full cursor-pointer select-none">
+    <div [@openClose]="sidebarService.isOpen ? 'open' : 'closed'">chevron_right</div>
+  </button>
+</div>

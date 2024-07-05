@@ -1,0 +1,37 @@
+<section class="border-primary border-r-[1px]">
+  <div class="flex flex-col items-start h-screen relative w-80 p-10">
+    <div class="shrink-0">
+      <app-logo/>
+      <h5 class="text-primary font-medium text-xl leading-none mt-8 mb-12">
+        Hello, {{ authenticationService.user!.name }}
+      </h5>
+      <h4 class="flex gap-4 items-end">
+        <span class="text-primary font-medium text-3xl leading-none">Your lists</span>
+        <span (click)="sendRequestToCreateNewTodoList()"
+              class="rounded-full bg-primary icon text-black text-xl font-bold p-0.5 cursor-pointer select-none">add</span>
+      </h4>
+    </div>
+
+    <ul id="sidebarTodoLists" class="flex flex-col items-baseline gap-3 my-6 shrink-1 grow overflow-y-scroll w-full">
+      <ng-container *ngIf="isLoadComplete && selectedTodoListData !== undefined">
+        <ng-container *ngFor="let todoList of todoLists">
+          <li [class.font-bold]="todoList.id == selectedTodoListData.id" class="text-xl cursor-pointer leading-tight"
+              (click)="selectTodoList(todoList)">{{ todoList.name }}
+          </li>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="!isLoadComplete">
+        <app-loading-wheel></app-loading-wheel>
+      </ng-container>
+    </ul>
+
+    <app-bottom-gradient parentElementId="sidebarTodoLists"/>
+
+    <div class="mt-4 flex">
+      <button type="button" class="btn-sm btn-outlined shrink-0" (click)="authenticationService.logout()">
+        <span class="text-xl font-medium">Logout</span>
+        <span class="icon text-2xl">logout</span>
+      </button>
+    </div>
+  </div>
+</section>

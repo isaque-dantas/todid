@@ -1,0 +1,54 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+  ?generated-in=WebStorm
+
+###
+POST http://localhost:5241/users
+Content-Type: application/json
+
+{
+  "Name": "Victor Fontana",
+  "Username": "v.fontana",
+  "Email": "v.fontana@gmail.com",
+  "Password": "12345678",
+  "Role": "common"
+}
+
+###
+POST http://10.0.0.112:8000/users/login
+Content-Type: application/json
+
+{"email":"v.fontana@gmail.com","password":"12345678"}
+
+###
+GET http://localhost:5241/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMyIsInJvbGUiOiJjb21tb24iLCJuYmYiOjE3MTg0NjE3NTEsImV4cCI6MTcxODQ2ODk1MSwiaWF0IjoxNzE4NDYxNzUxfQ.y16PUe018iBGxRTW_T8tOBnOCwXju1WPkem0RnY7_v4
+
+###
+GET http://localhost:5241/lists
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMyIsInJvbGUiOiJjb21tb24iLCJuYmYiOjE3MTg0NjE3NTEsImV4cCI6MTcxODQ2ODk1MSwiaWF0IjoxNzE4NDYxNzUxfQ.y16PUe018iBGxRTW_T8tOBnOCwXju1WPkem0RnY7_v4
+
+###
+GET http://localhost:5241/lists/11
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMyIsInJvbGUiOiJjb21tb24iLCJuYmYiOjE3MTg0NjE3NTEsImV4cCI6MTcxODQ2ODk1MSwiaWF0IjoxNzE4NDYxNzUxfQ.y16PUe018iBGxRTW_T8tOBnOCwXju1WPkem0RnY7_v4
+
+###
+POST http://localhost:5241/lists
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMyIsInJvbGUiOiJjb21tb24iLCJuYmYiOjE3MTg0NjE3NTEsImV4cCI6MTcxODQ2ODk1MSwiaWF0IjoxNzE4NDYxNzUxfQ.y16PUe018iBGxRTW_T8tOBnOCwXju1WPkem0RnY7_v4
+Content-Type: application/json
+
+{
+  "Name": "my another ultra topzeira list for ",
+  "Color": "FFF000"
+}
+
+###
+POST http://localhost:5241/items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIzMyIsInJvbGUiOiJjb21tb24iLCJuYmYiOjE3MTg0NjE3NTEsImV4cCI6MTcxODQ2ODk1MSwiaWF0IjoxNzE4NDYxNzUxfQ.y16PUe018iBGxRTW_T8tOBnOCwXju1WPkem0RnY7_v4
+Content-Type: application/json
+
+{
+  "Name": "take out garbage =(",
+  "IsComplete": true,
+  "TodoListId": 12
+}

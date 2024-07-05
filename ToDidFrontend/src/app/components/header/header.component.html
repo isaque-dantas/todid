@@ -1,0 +1,15 @@
+<header class="flex py-6 px-6 md:px-16 justify-between">
+  <app-logo/>
+  <nav>
+    <ul class="flex gap-10">
+      <ng-container *ngIf="authenticationService.isLoggedOut()">
+        <li><a class="text-xl" routerLink="/login">Login</a></li>
+        <li><a class="text-xl" routerLink="/signup">Sign-up</a></li>
+      </ng-container>
+      <ng-container *ngIf="authenticationService.isLoggedIn()">
+        <li><a class="text-xl" routerLink="/dashboard">Dashboard</a></li>
+        <li><a class="text-xl cursor-pointer" (click)="authenticationService.logout()">Logout</a></li>
+      </ng-container>
+    </ul>
+  </nav>
+</header>

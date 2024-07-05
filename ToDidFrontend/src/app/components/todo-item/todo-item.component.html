@@ -1,0 +1,33 @@
+<label for="todoItem-{{data.id}}" class="flex cursor-pointer items-center gap-4 w-fit" [class.pe-20]="!isHovering"
+       (mouseenter)="isHovering=true" (mouseleave)="isHovering=false">
+  <div class="flex items-center">
+    &#8203;
+    <input type="checkbox" class="size-6 border-gray-400-300" id="todoItem-{{data.id}}" [checked]="data.isComplete"
+           (change)="changeTodoItemStatus()"/>
+  </div>
+
+  <div>
+    <ng-container *ngIf="formActivated">
+      <input type="text" name="{{idPrefix}}-{{data.id}}"
+             id="{{idPrefix}}-{{data.id}}" value="{{data.name}}"
+             class="font-medium text-xl bg-transparent border-primary outline-0"
+             [class.line-through]="data.isComplete"
+             (keydown.enter)="finishEditing(data.id)"
+             (blur)="finishEditing(data.id)"
+      />
+    </ng-container>
+
+    <strong *ngIf="!formActivated" class="font-medium text-xl" [class.line-through]="data.isComplete">
+      {{ data.name }}
+    </strong>
+  </div>
+  <div *ngIf="isHovering" class="flex gap-2">
+    <button (click)="formActivated = !formActivated" class="bg-bright-gradient p-1 flex justify-center items-center" type="button">
+      <span *ngIf="!formActivated" class="icon text-xl">edit</span>
+      <span *ngIf="formActivated" class="icon text-xl">close</span>
+    </button>
+    <button (click)="delete()" class="bg-bright-gradient p-1 flex justify-center items-center" type="button">
+      <span class="icon text-xl">delete</span>
+    </button>
+  </div>
+</label>

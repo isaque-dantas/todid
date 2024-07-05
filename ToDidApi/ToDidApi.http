@@ -1,0 +1,6 @@
+@ToDidApi_HostAddress = http://localhost:5171
+
+GET {{ToDidApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,4 @@
+<li class="p-4 pr-6 bg-body-gradient border-2 border-{{accentColor}} text-lg font-bold relative">
+  <span [innerHTML]="sanitizedMessage" (click)="handleAnchorClick($event)"></span>
+  <button (click)="dismiss()" type="button" class=""><span class="absolute top-1 right-1 icon bg-{{accentColor}} rounded-full p-0.5 text-lg">close</span></button>
+</li>

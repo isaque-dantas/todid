@@ -1,0 +1,43 @@
+<mat-sidenav-container autosize class="flex relative h-screen">
+  <mat-sidenav (closed)="sidebarService.close()"
+               (opened)="sidebarService.open()"
+               [opened]="sidebarOpened"
+               [mode]="sidebarMode"
+               class="overflow-visible">
+    <div [class.bg-body-gradient]="sidebarService.isOpen">
+      <app-sidebar (todoListChanged)="selectTodoList($event)"
+                   (todoListCreationRequested)="createTodoList()"
+                   [isLoadComplete]="isLoadComplete"
+                   [selectedTodoListData]="selectedTodoListData"
+                   [todoLists]="todoLists"
+      />
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="w-full flex flex-col h-screen">
+      <div class="shrink-1 grow overflow-y-scroll pt-8 md:pt-0 md:mt-10 md:mx-20 xl:mt-20 xl:mx-32 relative" id="todo-list-container">
+        <ng-container *ngIf="isLoadComplete">
+          <ng-container *ngIf="selectedTodoListData">
+            <app-todo-list (newTodoItemCreated)="createTodoItem()"
+                           (todoListDeleted)="deleteSelectedTodoList()"
+                           [data]="selectedTodoListData"/>
+          </ng-container>
+          <ng-container *ngIf="!selectedTodoListData">
+            <h1 class="font-medium text-4xl justify-self-center self-center">There aren't any TodoLists here</h1>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngIf="!isLoadComplete">
+          <app-loading-wheel/>
+        </ng-container>
+      </div>
+      <app-bottom-gradient parentElementId="todo-list-container"/>
+
+      <div class="shrink-0">
+        <app-footer/>
+      </div>
+    </div>
+    <app-animated-sidebar-button [anchorElementData]="{side: 'right', selector: 'mat-sidenav'}"/>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

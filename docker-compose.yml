@@ -1,6 +1,6 @@
 ﻿services:
-  todid:
-    image: todid
+  todidapi:
+    image: todidapi
     build:
       context: .
       dockerfile: Dockerfile
