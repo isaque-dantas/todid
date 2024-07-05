@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.WebHost.ConfigureKestrel(serverOptions =>
 {
-    serverOptions.Listen(System.Net.IPAddress.Parse("10.0.0.112"), 8000);
+    serverOptions.Listen(System.Net.IPAddress.Parse("0.0.0.0"), 5241);
 });
 
 const string corsPolicy = "corsPolicy";
@@ -65,5 +65,7 @@ app.UseAuthorization();
 UserEndpoints.Map(app);
 TodoItemEndpoints.Map(app);
 TodoListEndpoints.Map(app);
+
+app.MapGet("/ping", () => "Ping succesfull!")
 
 app.Run();
